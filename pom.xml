@@ -71,7 +71,7 @@
         <servlet.version>3.1.0</servlet.version>
         <slf4j.version>1.7.21</slf4j.version>
         <spring.version>4.3.6.RELEASE</spring.version>
-        <spring.boot.version>1.5.0.RELEASE</spring.boot.version>
+        <spring.boot.version>1.5.1.RELEASE</spring.boot.version>
         <spring.security.version>4.2.1.RELEASE</spring.security.version>
 
         <!-- Test dependencies: -->
@@ -141,6 +141,50 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
                 <exclusions>
                     <exclusion>
@@ -299,7 +343,7 @@
                             <rules>
                                 <dependencyConvergence/>
                                 <bannedDependencies>
-                                    <searchTransitive>true</searchTransitive>
+                                    <searchTransitive>false</searchTransitive>
                                     <excludes>
                                         <exclude>commons-logging</exclude>
                                     </excludes>
@@ -308,6 +352,7 @@
                             <fail>true</fail>
                         </configuration>
                     </execution>
+
                 </executions>
             </plugin>
             <plugin>
