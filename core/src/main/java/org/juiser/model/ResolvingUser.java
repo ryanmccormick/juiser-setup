@@ -104,6 +104,9 @@ public abstract class ResolvingUser implements User {
     }
 
     @Override
+    public URL getDirectory() { return isAnonymous() ? null : getRequiredUser().getDirectory(); }
+
+    @Override
     public String getEmail() {
         return isAnonymous() ? null : getRequiredUser().getEmail();
     }

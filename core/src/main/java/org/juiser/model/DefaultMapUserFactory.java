@@ -103,6 +103,11 @@ public class DefaultMapUserFactory implements Function<Map<String, ?>, User> {
             builder.setWebsite(value);
         }
 
+        value = getString(data, "directory");
+        if (value != null) {
+            builder.setDirectory(value);
+        }
+
         value = getString(data, "email");
         if (value != null) {
             builder.setEmail(value);

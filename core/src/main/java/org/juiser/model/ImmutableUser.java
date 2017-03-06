@@ -38,6 +38,7 @@ public class ImmutableUser implements User {
     private final URL profile;
     private final URL picture;
     private final URL website;
+    private final URL directory;
     private final String email;
     private final boolean emailVerified;
     private final String gender;
@@ -50,7 +51,7 @@ public class ImmutableUser implements User {
 
     public ImmutableUser(boolean authenticated, String href, String id, String name, String givenName,
                          String familyName, String middleName, String nickname, String username, URL profile,
-                         URL picture, URL website, String email, boolean emailVerified, String gender,
+                         URL picture, URL website, URL directory, String email, boolean emailVerified, String gender,
                          LocalDate birthdate, TimeZone zoneInfo, Locale locale, Phone phone, ZonedDateTime createdAt,
                          ZonedDateTime updatedAt) {
         this.authenticated = authenticated;
@@ -65,6 +66,7 @@ public class ImmutableUser implements User {
         this.profile = profile;
         this.picture = picture;
         this.website = website;
+        this.directory = directory;
         this.email = email;
         this.emailVerified = emailVerified;
         this.gender = gender;
@@ -142,6 +144,9 @@ public class ImmutableUser implements User {
     }
 
     @Override
+    public URL getDirectory() { return this.directory; }
+
+    @Override
     public String getEmail() {
         return this.email;
     }
@@ -217,6 +222,7 @@ public class ImmutableUser implements User {
         if (profile != null ? !profile.equals(that.profile) : that.profile != null) return false;
         if (picture != null ? !picture.equals(that.picture) : that.picture != null) return false;
         if (website != null ? !website.equals(that.website) : that.website != null) return false;
+        if (directory != null ? !directory.equals(that.directory) : that.directory != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (gender != null ? !gender.equals(that.gender) : that.gender != null) return false;
         if (birthdate != null ? !birthdate.equals(that.birthdate) : that.birthdate != null) return false;
@@ -241,6 +247,7 @@ public class ImmutableUser implements User {
         result = 31 * result + (profile != null ? profile.hashCode() : 0);
         result = 31 * result + (picture != null ? picture.hashCode() : 0);
         result = 31 * result + (website != null ? website.hashCode() : 0);
+        result = 31 * result + (directory != null ? directory.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (emailVerified ? 1 : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);

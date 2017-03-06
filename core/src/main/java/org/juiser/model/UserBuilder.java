@@ -40,6 +40,7 @@ public class UserBuilder {
     private URL profile;
     private URL picture;
     private URL website;
+    private URL directory;
     private String email;
     private boolean emailVerified;
     private String gender;
@@ -49,6 +50,7 @@ public class UserBuilder {
     private Phone phone;
     private ZonedDateTime createdAt;
     private ZonedDateTime updatedAt;
+
 
     public UserBuilder setAuthenticated(boolean authenticated) {
         this.authenticated = authenticated;
@@ -134,6 +136,16 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setDirectory(String directory) {
+        setDirectory(toUrl(directory, "directory"));
+        return this;
+    }
+
+    public UserBuilder setDirectory(URL directory) {
+        this.directory = directory;
+        return this;
+    }
+
     public UserBuilder setEmail(String email) {
         this.email = email;
         return this;
@@ -197,7 +209,7 @@ public class UserBuilder {
 
     public User build() {
         return new ImmutableUser(authenticated, href, id, name, givenName, familyName, middleName, nickname, username,
-            profile, picture, website, email, emailVerified, gender, birthdate, zoneInfo, locale, phone,
+            profile, picture, website, directory, email, emailVerified, gender, birthdate, zoneInfo, locale, phone,
             createdAt, updatedAt);
     }
 }

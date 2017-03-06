@@ -67,6 +67,8 @@ public interface User {
 
     URL getWebsite();
 
+    URL getDirectory();
+
     String getEmail();
 
     boolean isEmailVerified();
